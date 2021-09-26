@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amber.passer.mapper.JgmxMapper">
+
+    <!--<resultMap id="BaseResultMap" type="com.amber.passer.entity.Jgmx">-->
+        <!--<id column="id" property="id"/>-->
+        <!--<result column="gonghao" property="gonghao"/>-->
+        <!--<result column="user_name" property="username"/>-->
+        <!--<result column="nickname" property="nickname"/>-->
+        <!--<result column="phone" property="phone"/>-->
+        <!--<result column="age" property="age"/>-->
+        <!--<result column="regTime" property="regTime"/>-->
+        <!--&lt;!&ndash;<collection property="roles" ofType="com.amber.passer.entity.Role">&ndash;&gt;-->
+            <!--&lt;!&ndash;<id column="rid" property="id"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<result column="rname" property="name"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</collection>&ndash;&gt;-->
+    <!--</resultMap>-->
+
+
+    <select id="getAll" resultType="com.amber.passer.entity.Jgmx">
+        select * from pssser_jgmx where is_delete = 0
+    </select>
+
+    <select id="getListJgmxByGh" parameterType="java.lang.Integer" resultType="com.amber.passer.entity.Jgmx">
+        select * from pssser_jgmx where is_delete = 0 and gh = #{gh}
+    </select>
+
+    <!-- distinct 去重 -->
+    <select id="getAllGh" resultType="java.lang.Integer">
+        select distinct gh from jgmx where is_delete = 0
+    </select>
+    <select id="getJgslAll" resultType="com.amber.passer.entity.Jgmx">
+        select * from pssser_jgmx where is_delete = 0
+    </select>
+
+</mapper>
